@@ -10,7 +10,7 @@ content-type: application/json
 {
     "firstName": "teto",
     "lastName": "Rosa",
-    "email": "teto@gmail.com",
+    "email": "rjrosa@gmail.com",
     "password": "123456",
     "passwordConfirm": "123456"
 }
@@ -20,7 +20,7 @@ POST http://localhost:3000/auth/login/
 content-type: application/json
 
 {
-    "email": "teto@gmail.com",
+    "email": "rjrosa@gmail.com",
     "password": "123456"
 }
 
@@ -32,8 +32,8 @@ POST http://localhost:3000/auth/update/
 content-type: application/json
 
 {
-    "firstName": "teto",
-    "lastName": "teto",
-    "email": "pinche@gmail.com"
+    "firstName": "roberto",
+    "lastName": "rosa",
+    "email": "rjrosa@gmail.com"
     
 }
