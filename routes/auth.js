@@ -17,16 +17,16 @@ router.get("/login", function (req, res, next) {
 });
 /* login user */
 router.post("/login", loginUser, function (req, res, next) {
-  res
-    .status(200)
-    .json({ message: "user + password match::" + req.body.payload });
+  res.status(200).json({ message: "user + password match" });
 });
 
 /* end session. clear cookie*/
-router.get('/logout', (req,res)=> {
-  res.clearCookie('access_token').status(200).json({message: 'quite la cookie'})
-})
-
+router.get("/logout", (req, res) => {
+  res
+    .clearCookie("access_token")
+    .status(200)
+    .json({ message: "quite la cookie" });
+});
 
 /* create new user */
 router.post(
@@ -39,8 +39,13 @@ router.post(
   }
 );
 /* edit user */
-router.post("/update", validateCookie, updateUserSelf,function (req, res, next) {
-  res.status(202).json({ message: `user edited` });
-});
+router.post(
+  "/update",
+  validateCookie,
+  updateUserSelf,
+  function (req, res, next) {
+    res.status(202).json({ message: `user edited` });
+  }
+);
 
 module.exports = router;
