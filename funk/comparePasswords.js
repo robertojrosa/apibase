@@ -1,8 +1,8 @@
 const bcrypt = require("bcrypt");
 
-function passwordMatch(param1, param2) {
+function passwordMatch(incoming, hashed) {
   return new Promise(function(resolve, reject) {
-      bcrypt.compare(param1, param2, function(err, res) {
+      bcrypt.compare(incoming, hashed, function(err, res) {
           if (err) {
                reject(err);
           } else {

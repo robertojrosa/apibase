@@ -1,7 +1,7 @@
 const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const passwordMatch = require("../../funk/passwordMatch");
+const comparePasswords = require("../../funk/comparePasswords");
 
 module.exports = async (req, res, next) => {
   try {
@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
       res.status(200).json({ message: "no valid user" });
       return;
     } else {
-      if (await passwordMatch(req.body.password, userExists.password)) {
+      if (await comparePasswords(req.body.password, userExists.password)) {
         jwt.sign(
           { id: userExists.id },
           process.env.JWT_SECRET,

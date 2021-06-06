@@ -7,6 +7,10 @@ module.exports = async (req, res, next) => {
     });
     (existingUser.firstName = req.body.firstName),
       (existingUser.lastName = req.body.lastName);
+      if(req.body.newPassword != NaN)
+        console.log(req.body.newPassword);
+        else
+        console.log(req.body.newPassword);
     await existingUser.save();
     next();
   } catch (err) {
