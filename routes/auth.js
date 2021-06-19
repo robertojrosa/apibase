@@ -1,20 +1,26 @@
 var express = require("express");
 const userExists = require("../middlew/auth/userExists");
 const passwordMatch = require("../middlew/auth/passwordMatch");
+const validatePassword = require("../middlew/auth/validatePassword");
 const createNewUser = require("../middlew/auth/createNewUser");
 const updateUserSelf = require("../middlew/auth/updateUserSelf");
 const loginUser = require("../middlew/auth/loginUser");
-const validateCookie = require("../middlew/auth/validateCookie");
+const validSession = require("../middlew/auth/validSession")
 var router = express.Router();
 
 /* serve login page */
-router.get("/", validateCookie, function (req, res, next) {
-  res.status(200).json({ message: "dashboar as the cookie is valid" });
+router.get("/", function (req, res, next) {
+  if(req.cookieIsSet === true)
+  res.status(200).json({ message: "dashboarda as the cookie is valid" });
+  else
+  res.status(300).json({message: 'login required'});
 });
+
 /* login user form */
 router.get("/login", function (req, res, next) {
   res.status(200).json({ message: "login form" });
 });
+
 /* login user */
 router.post("/login", loginUser, function (req, res, next) {
   res.status(200).json({ message: "user + password match" });
@@ -40,8 +46,10 @@ router.post(
 );
 /* edit user */
 router.post(
-  "/update",
-  validateCookie,
+  "/updateSelf",
+  validSession,
+  userExists,
+  validatePassword,
   updateUserSelf,
   function (req, res, next) {
     res.status(202).json({ message: `user edited` });

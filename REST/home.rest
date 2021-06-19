@@ -8,10 +8,10 @@ POST http://localhost:3000/auth/register/
 content-type: application/json
 
 {
-    "firstName": "rjrosa",
-    "lastName": "rjrosa",
-    "email": "rjrosa@gmail.com",
-    "password": "123456",
+    "firstName": "bea",
+    "lastName": "triz",
+    "email": "beatriz@gmail.com",
+    "newpassword": "123456",
     "passwordConfirm": "123456"
 }
 
@@ -28,17 +28,17 @@ content-type: application/json
 GET  http://localhost:3000/auth/logout/
 
 ### update
-POST http://localhost:3000/auth/update/
+POST http://localhost:3000/auth/updateSelf/
 content-type: application/json
 
 {
-    "firstName": "mac",
-    "lastName": "cheese",
+    "firstName": "rjrosa p",
+    "lastName": "rjrosa p",
     "password": "123456"
 
 }
 ### update with password
-POST http://localhost:3000/auth/update/
+POST http://localhost:3000/auth/updateSelf/
 content-type: application/json
 
 {

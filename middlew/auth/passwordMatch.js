@@ -1,8 +1,7 @@
 const bcrypt = require("bcrypt");
 module.exports = (req, res, next) => {
-  if (req.body.password === req.body.passwordConfirm) {
-    let passw = req.body.password
-    bcrypt.hash(passw, 5,  function (err, hash) {
+  if (req.body.newpassword === req.body.passwordConfirm) {
+    bcrypt.hash(req.body.newpassword, 5,  function (err, hash) {
       if (err) {
         console.log(err);
         return;
