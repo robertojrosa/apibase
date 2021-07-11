@@ -32,8 +32,8 @@ POST http://localhost:3000/auth/updateSelf/
 content-type: application/json
 
 {
-    "firstName": "rjrosa p",
-    "lastName": "rjrosa p",
+    "firstName": "roberto",
+    "lastName": "rosa",
     "password": "123456"
 
 }

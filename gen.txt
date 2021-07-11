@@ -1,0 +1,3 @@
+req.cookieIsSet // T/F jwt
+req.userIdFromCookie // id from jwt
+req.userExists // [Object] DB record of user for either login or from jwt

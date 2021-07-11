@@ -4,7 +4,6 @@ module.exports = async (req, res, next) => {
   console.log(req.userExists.password);
   try{
      let validPassword = await bcrypt.compare(req.body.password, req.userExists.password);
-     console.log('valid password' + validPassword)
      next()
   }
   catch(err) {

@@ -11,7 +11,6 @@ module.exports = async (req, res, next) => {
 
     if (!userExists) next();
     else {
-      console.log(userExists)
       req.userExists = userExists;
       next();
     }
