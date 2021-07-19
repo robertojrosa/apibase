@@ -22,7 +22,7 @@ router.get("/login", function (req, res, next) {
 });
 
 /* login user */
-router.post("/login", loginUser, function (req, res, next) {
+router.post("/login", userExists, loginUser, function (req, res, next) {
   res.status(200).json({ message: "user + password match" });
 });
 

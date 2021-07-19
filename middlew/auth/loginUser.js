@@ -1,16 +1,13 @@
-const User = require("../../models/User");
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 module.exports = async (req, res, next) => {
-
+console.log(req.userExists);
   try {
-    var userExists = await User.findOne({ where: { email: req.body.email } });
-    if (!userExists) {
+    if (!req.userExists) {
       res.status(200).json({ message: "no valid user" });
       return;
     } else {
       jwt.sign(
-        { id: userExists.id },
+        { id: req.userExists.id },
         process.env.JWT_SECRET,
         function (err, token) {
           if (err) {
