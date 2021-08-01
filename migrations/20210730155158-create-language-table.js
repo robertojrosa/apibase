@@ -1,19 +1,14 @@
 "use strict";
 
-const { DataTypes } = require("sequelize/types");
+const { DataTypes } = require("sequelize");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("Languages", {
-      id: {
-        type: DataTypes.UUID,
-        primaryKey: true,
-        defaultValue: Sequelize.UUIDV1,
-      },
       languageCode: {
         type: DataTypes.STRING,
+        primaryKey: true,
         allowNull: false,
-        unique: true,
       },
       languageName: {
         type: DataTypes.STRING,
