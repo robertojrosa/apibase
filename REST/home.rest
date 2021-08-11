@@ -3,14 +3,14 @@ http://localhost:3000/
 ### return login and check cookie
 http://localhost:3000/auth/
 
-###
+### create account
 POST http://localhost:3000/auth/register/
 content-type: application/json
 
 {
-    "firstName": "bea",
-    "lastName": "triz",
-    "email": "beatriz@gmail.com",
+    "firstName": "roberto",
+    "lastName": "rosa",
+    "email": "rjrosa@gmail.com",
     "newpassword": "123456",
     "passwordConfirm": "123456"
 }

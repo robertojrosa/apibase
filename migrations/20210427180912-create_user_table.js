@@ -1,4 +1,5 @@
 "use strict";
+
 const { DataTypes } = require("sequelize");
 
 module.exports = {
@@ -21,6 +22,10 @@ module.exports = {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
+      },
+      team: {
+        type:DataTypes.UUID,
+        allowNull: true,
       },
       password: {
         type: DataTypes.TEXT,
